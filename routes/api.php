@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 // Use resource to get access to all routes
 Route::resource('products', ProductController::class);
+// Create search route not included in the resource
+Route::get('/products/search/{name}', [ProductController::class, 'search']);
 
 // For Authentication
 // Route::get('/products', [ProductController::class, 'index']);

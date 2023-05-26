@@ -71,4 +71,16 @@ class ProductController extends Controller
     {
        return Product::destroy($id);
     }
+
+    /**
+     * Search for a name
+     *
+     * @param  str  $name
+     * @return \Illuminate\Http\Response
+     */
+    public function search($name)
+    {
+        // Use MySql LIKE, if it starts or end with the search name
+       return Product::where('name', 'like', '%'.$name.'%')->get();
+    }
 }
